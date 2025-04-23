@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend${BRANCH_SUFFIX}
+  namespace: resource-manager
+spec:
+  selector:
+    matchLabels:
+      app: frontend${BRANCH_SUFFIX}
+  template:
+    metadata:
+      labels:
+        app: frontend${BRANCH_SUFFIX}
+    spec:
+      containers:
+        - name: frontend
+          image: ${CI_REGISTRY_PATH}/${CI_REGISTRY_PROJECT}/frontend${BRANCH_SUFFIX}:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: frontend-env${BRANCH_SUFFIX}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend${BRANCH_SUFFIX}
+  namespace: resource-manager
+spec:
+  selector:
+    app: frontend${BRANCH_SUFFIX}
+  ports:
+    - port: 80
+      targetPort: 80
