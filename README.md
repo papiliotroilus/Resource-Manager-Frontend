@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/63a95702-77ff-40c3-978b-658e08f45996)  
+![rmdemo](https://github.com/user-attachments/assets/4851a7f0-70a7-4590-84fb-cbaee84d5768)
+
 QUICK START WITH DOCKER:
 - Make sure the Keycloak instance, PostgreSQL database, and backend are running
 - Build the image with `docker build -t resource-manager-frontend .` if necessary.
