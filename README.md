@@ -9,7 +9,7 @@ QUICK START WITH DOCKER:
 - Warning: the frontend cannot run over HTTP due to a dependency of the Keycloak library not working over unsecured connections, so it must be reverse proxied over HTTPS with a valid certificate.
 
 This repository contains the frontend of a resource manager.
-- It is built in TypeScript with Vite, Tanstack Router, React, and Mantine with Tabler icons, and connects to a separate backend housed in the `resource-manager-backend` repository.
+- It is built in TypeScript with Vite, Tanstack Router, React, and Mantine with Tabler icons, and connects to a separate backend housed in the [`resource-manager-backend`](https://github.com/papiliotroilus/Resource-Manager-Backend) repository.
 - To properly initialise, a .env file needs to be created containing the app's root URL, e.g. `VITE_ROOT_URL=https://192.168.1.134`, the backend's root URL, e.g. `VITE_BACKEND_URL=http://192.168.1.134:3000/`, and Keycloak's URL, realm name, and client name, e.g. `VITE_KEYCLOAK_URL=http://192.168.1.134:8080/`, `VITE_KEYCLOAK_REALM=resource-manager`, and `VITE_KEYCLOAK_CLIENT=resource-manager-frontend`
 - This version of the frontend makes calls to backend endpoints prefixed with the `/v1/` version.
 - Info of logged-in user is fetched upon initial log in and stored in the authStore hook.
@@ -25,4 +25,4 @@ For testing, run `npm test`. This will initiate an end-to-end integration test p
 
 The repository comes with a `nginx.conf`, `entrypoint.sh`, and `dockerfile` for building a Docker image using Nginx to serve the static files and automatically replace the environment variables in the configuration and code with runtime environment variables.
 
-Finally, this repository also contains a GitLab CI/CD manifest to incorporate this app as part of a self-updating Kubernetes cluster. For more information on this, see the `resource-manager-devops` repository.
+Finally, this repository also contains a GitLab CI/CD manifest to incorporate this app as part of a self-updating Kubernetes cluster. For more information on this, see the [`resource-manager-devops`](https://github.com/papiliotroilus/Resource-Manager-Devops) repository.
